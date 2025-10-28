@@ -1,9 +1,12 @@
 # Case-insensitive string set
 
-A Python package providing a `set` class for case-insensitive strings.
+A Python package providing an ordered `set` class for case-insensitive strings.
 
 Useful for doing things like `foo in bar` where `bar` is a set of strings and you want the check to be case-insensitive,
 but also preserve the original casing of the strings in the set when iterating over it.
+
+Inside the `CaseInsensitiveStringSet` class, a dictionary is used to store the data,
+which means that insertion order is preserved in Python >= 3.7.
 
 ## Examples
 

@@ -1,4 +1,6 @@
 import unittest
+from random import shuffle
+from string import ascii_letters, ascii_lowercase
 
 from case_insensitive_string_set import CaseInsensitiveStringSet
 
@@ -95,3 +97,9 @@ class TestCaseInsensitiveSet(unittest.TestCase):
         self.assertEqual(["a", "B", "c"], list(cis2))
         self.assertIsNot(cis1, cis2)
         self.assertEqual(cis1, cis2)
+
+    def test_is_ordered(self) -> None:
+        values = list(ascii_lowercase)
+        shuffle(values)
+        cis = CaseInsensitiveStringSet(values)
+        self.assertEqual(values, list(cis))
