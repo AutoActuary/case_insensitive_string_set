@@ -18,6 +18,11 @@ class CaseInsensitiveStringSet(MutableSet[str]):
         if folded not in self._data:
             self._data[folded] = value
 
+    def update(self, *args: Iterable[str]) -> None:
+        for it in args:
+            for value in it:
+                self.add(value)
+
     def discard(self, value: str) -> None:
         self._data.pop(value.casefold(), None)
 

@@ -103,3 +103,8 @@ class TestCaseInsensitiveSet(unittest.TestCase):
         shuffle(values)
         cis = CaseInsensitiveStringSet(values)
         self.assertEqual(values, list(cis))
+
+    def test_update(self) -> None:
+        cis = CaseInsensitiveStringSet(["a", "b", "c"])
+        cis.update(["B", "C", "D"], ["A", "B", "F"])
+        self.assertEqual(["a", "b", "c", "D", "F"], list(cis))
